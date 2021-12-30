@@ -7,4 +7,6 @@ module.exports = {
     local: process.env.DB_URL,
     elephant: process.env.DB_URL_EL,
   },
+  EMAIL: process.env.EMAIL,
+  PASSWORD: process.env.PASSWORD,
 };
