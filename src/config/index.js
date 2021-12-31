@@ -9,4 +9,5 @@ module.exports = {
   },
   EMAIL: process.env.EMAIL,
   PASSWORD: process.env.PASSWORD,
+  FILE_MAX_SIZE: process.env.FILE_MAX_SIZE,
 };
