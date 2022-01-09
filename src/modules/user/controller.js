@@ -3,8 +3,31 @@ const { verify } = require("../../utils/jwt");
 const { hashPassword, comparePassword } = require("../../utils/bcrypt");
 const fs = require("fs");
 const path = require("path");
+const { findUser } = require("../login/model");
 
 module.exports = {
+  GET: async (req, res) => {
+    try {
+      const { token } = req.headers;
+      const { userId } = verify(token);
+
+      const { user_password, user_status, ...findUser } = await model.findUser(
+        userId
+      );
+      const findCompanies = await model.findCompanies(userId);
+      const findComplexes = await model.findComplexes(userId);
+      const findHouses = await model.findHouses(userId);
+
+      console.log(findUser);
+      console.log(findCompanies);
+      console.log(findComplexes);
+      console.log(findHouses);
+      res.status(200).json({ message: "ok" });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: "Server Find Error!" });
+    }
+  },
   PUT: async (req, res) => {
     try {
       const { firstName, lastName } = req.body;

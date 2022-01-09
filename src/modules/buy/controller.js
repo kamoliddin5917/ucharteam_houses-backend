@@ -32,8 +32,8 @@ module.exports = {
       const infoBank = `
       <h1> Saytimiz orqali yengi Client sizdan kredit olmoqchi! </h1>
       <p> ISM: ${fullName}, TEL: ${tell}, Email: ${email}</p>
-
       `;
+
       nodemailerFn(email, infoClient);
       nodemailerFn(user.user_email, infoUser);
       nodemailerFn(bank.bank_email, infoBank);
